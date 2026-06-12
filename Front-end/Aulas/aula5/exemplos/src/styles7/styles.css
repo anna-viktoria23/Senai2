@@ -1,0 +1,175 @@
+/* --- ESTILO GERAL (DESKTOP / TELAS GRANDES) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding não aumente o tamanho dos elementos */
+  font-family: Arial, sans-serif;
+}
+
+#topo-loja {
+  background-color: #611818;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* RELAÇÃO COM HTML: Oculta o sistema de menu mobile para quem usa computador. */
+#bt_menu, #label-menu {
+  display: none;
+}
+
+#menu ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+/* RELAÇÃO COM HTML: Faz os <li> do menu ficarem um ao lado do outro no PC. */
+#menu li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#menu a {
+  color: #d0b2b2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.titulo-secao {
+  text-align: center;
+  margin-top: 40px;
+  color: #640707;
+}
+
+/* ESTRUTURA GRID: Define que a <div> vitrine-grid terá 3 colunas de tamanhos iguais. */
+.vitrine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* TRATAMENTO DE IMAGEM: Crucial para o design não quebrar se as fotos 
+   tiverem tamanhos diferentes no HTML. */
+.card img {
+  width: 100%;       /* Garante que a imagem ocupe toda a largura do card */
+  height: 350px;     /* Define uma altura fixa para TODOS os cards ficarem iguais */
+  object-fit: cover; /* MÁGICA: Corta a imagem levemente para preencher o espaço sem distorcer */
+  border-radius: 5px;
+  display: block;    /* Remove espaços vazios indesejados abaixo da imagem */ 
+  margin-bottom: 15px;
+}
+
+.preco {
+  display: block; /* Ocupa a linha toda, empurrando o botão para baixo. */
+  color: #e62222;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.btn-pedido {
+  background: brown;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+#rodape {
+  background: #913939;
+  color: white;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* --- MEDIA QUERIES (RESPONSIVIDADE) --- */
+
+/* Ajuste fino de espaçamento para telas em geral. */
+@media screen {
+  #topo-loja h1 {
+    letter-spacing: 2px;
+  }
+}
+
+/* Celulares muito pequenos: diminui a fonte do <h1> do HTML. */
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ESTRUTURA TABLET: Muda o grid de 3 colunas para 2 colunas (1fr 1fr). */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .vitrine-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ESTRUTURA CELULAR: Transforma o layout completamente. */
+@media screen and (max-width: 600px), (orientation: portrait) {
+ 
+  /* Faz o ícone de hambúrguer aparecer. */
+  #label-menu {
+    display: block;
+    font-size: 2.5rem;
+    color: #280101;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  /* Esconde o menu <ul> por padrão. */
+  #menu ul {
+    display: none;
+  }
+
+  /* MÁGICA CSS: Quando o input #bt_menu for checado, o elemento 
+     irmão #menu ul passa a ser exibido. */
+  #bt_menu:checked ~ #menu ul {
+    display: block;
+    padding: 10px 0;
+  }
+
+  /* No celular, os cards ocupam a largura total (1 coluna). */
+  .vitrine-grid {
+    grid-template-columns: 1fr; /* Empilha em 1 coluna */
+  }
+
+  /* Remove a descrição do prato para o site não ficar gigante no celular. */
+  .desc {
+    display: none; /* UX: Esconde texto longo no mobile para economizar espaço */
+  }
+
+  /* Itens do menu viram blocos empilhados. */
+  #menu li {
+    display: block;
+    margin: 15px 0;
+    border-bottom: 1px solid #34495e;
+    padding-bottom: 10px;
+  }
+}
+
+/* Esconde elementos interativos na hora de imprimir a página. */
+@media not screen {
+  #menu, .btn-pedido, #label-menu, #bt_menu {
+    display: none;
+  }
+}
+
+/* --- ESTILO PARA JAVASCRIPT --- */
+/* Esta classe não existe no HTML original, mas o JS pode adicioná-la 
+   ao <article class="card"> para destacar uma promoção. */
+.em-promocao {
+    border: 3px solid #932c2c !important;
+    background-color: #58080858;
+    transform: scale(1.05); /* Efeito visual de destaque. */
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+}

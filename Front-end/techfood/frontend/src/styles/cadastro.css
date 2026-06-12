@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#secao-cadastro {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+#form-cadastro-prato {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.campo-formulario label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.campo-formulario input,
+.campo-formulario textarea,
+.campo-formulario select {
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus,
+.campo-formulario select:focus {
+  border-color: #e67e22;
+}
+
+.campo-formulario textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.campo-formulario input[type="file"] {
+  padding: 10px;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+#btn-cadastrar {
+  width: 100%;
+  padding: 14px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#btn-cadastrar:hover {
+  background: #d35400;
+}
+
+#mensagem {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  min-height: 20px;
+}
+
+.mensagem-sucesso {
+  color: #27ae60;
+}
+
+.mensagem-erro {
+  color: #e74c3c;
+}
+
+/* responsividade */
+
+@media screen and (max-width: 600px) {
+  #secao-cadastro {
+    padding: 15px;
+  }
+
+  #form-cadastro-prato {
+    padding: 20px;
+  }
+
+  .campo-formulario input,
+  .campo-formulario textarea,
+  .campo-formulario select {
+    font-size: 0.95rem;
+  }
+
+  #btn-cadastrar {
+    padding: 15px;
+  }
+}

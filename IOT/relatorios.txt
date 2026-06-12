@@ -1,0 +1,123 @@
+Grupo 4: Domótica Assistiva- Sistema microcontrolado aplicado à domotica assistiva
+- Domotica assistiva é um termo vindo da junção entre a palavra do Latim Domus e Robotica.
+- tem como função ajudar indivíduos com pouca mobilidade, deficiência ou até mesmo idosos a ter uma maior autonomia no ambiente domestico
+- Projeto: Um controle com um microcontrolador
+	- Controle de diferentesfunções em um único dispositivo, interface simples, inserido em ambientes domésticos.
+	- Hardware:  Platadorma e Microcontrolador PIC16F877A e Arduino Uno R3, Sensores, LED infravermelho (tl1838) e modulo de voz, atuadores: Joystick 3 posições e display LCD 16x2
+	- Conectividade: Envia dados por luz infravermelha, capta os sinais de ação, transmite por radiofrequência, comunicação sem fio, linguagem de marcação feito em C++
+	- Os dados são mostrados em um Display LCD para visualização; Armazena até 15 comandos de voz; Comandos organizados em 3 grupos de 5; Acesso individual a cada grupo;
+Necessária troca de grupo para reconhecer outros comandos.
+	
+
+
+
+
+Grupo 6: logística e rastreamento- Edge AI
+- conecta objetos á internet
+- foco é o rastreamento das operações por meio de um dispositivo instalado que acompanha a localização, rotas e tempo
+- problema: cerca de 65% das cargas do Brasil acontece em rodovias, e isso trás uma dependência pelas empresas. o combustível também apresenta cerca de 40% das despesas na rota
+- Projeto: COBLI
+	- criada no Brasil, criada para solucionar os problemas
+	- a plataforma utiliza sensores, atuadores e hardwares para localizar os veiculo
+		- sensores: GPS- localização. acelerômetro que evita freadas bruscas entre outros. CAN que quando ligado ao veiculo se unam e respondam por si só.
+		- atuadores: uma câmera que percebe se o motorista está distraído ou em celular.
+		- linguagem é programado em C++, desenvolvido em PHP.
+		- informações são transmitidas pelo rastreador no veiculo e enviam os dados pelo Lorawan
+		- os dados são mostrados em uma tela que as emite em forma de gráficos, tabelas e até desenhos.
+		- também disponibiliza uma API alerta com endpoints
+		- funciona com criptografia pelo HTTPS e a APIcase, em que uma chave dá permissão para fazer algumas ações pelos funcionários
+	- com a aplicação do COBLI está sendo eficiente e até  mostrou 98% de diminuição de veículos em alta velocidade.
+
+
+
+Grupo 1: Wearables
+- os wearables é todo dispositivo inteligente usado como vestimenta, como óculos, relógios, tênis. etc.
+- pode captar informações sobre batimentos cárdicos, etc.
+- os mais comuns são os smartwatch
+- Projeto: o projeto consiste em um óculos inteligente desenvolvidos para pessoas com deficiência visuais como cegos e daltônicos.
+	- Hardware: microcontrolador integrado com wifi e bluethoof e funciona como o cérebro do sistema. A câmera é um sensor visual que vai detectar as coisas e manda para o sistema processar. O Bluethoof é um tipo de conectividade. Também é integrado com IA
+	- Tem um sistema que utiliza a acessibilidade e um outro que traduz falas e legendas.
+	- tem um aplicativo e site que descreve imagens
+	- faz transcrição e tradução.
+
+
+Grupo 2: Monitoramento de campo de longo alcance- AgroTech
+- Agrotech: inserção de tecnologias no meio da agricultura. usa de maneira eficiente os recursos naturais
+- monitoramento de longo alcance: 
+	- Projeto: é um projeto para o monitoramento no cultivo da manga. analisa todas as variáveis que podem definir a qualidade na manga. resolve o problema de longo alcance, com os sensores podendo ser colocados distantes um dos outros. evitar o desperdício de recursos naturais, e o projeto construí um controle de agua e de todos elementos em que é necessário para manga
+		-hardware: sensores de umidade e temperatura do solo( colocados em três camadas abaixo da terra), cartão SD, ESP32, DS18B20, LoRa (E32 e E220)
+		- Linguagem de programação: C++, API em Json
+		- Conectividade: No inicio usaram o E32, mas se mostrou instável e trocou para o E22o, que se mostrou ser superior e mais sensível.
+		- o armazenamento é feito pelo cartão DS e a visualização não tem muita coisa pois o projeto não foi colocado em prática.
+		- ajuda os agricultores, facilitando o cultivo.
+
+
+
+Grupo 7: SmartHome- smart voice control
+- é uma casa inteligente que conta com dispositivos e sistemas eletrônicos conectados á internet, onde os moradores podem controlar várias funções de suas casas de maneira remota.
+- a automação residencial cresce graças á praticidade, segurança e autonomia.
+	- Projeto: utiliza o comando de voz para controlar os dispositivos da casa, como uma Alexa. essa tecnologia une conceitos como comando de voz, programação, em que é traduzido o comando de voz do usuário para a ação ser realizada, a eletrônica e a automação, já que o usuário não precisará fazer nada físico. O projeto era criticado porque colocava quem o utilizava como preguiçoso.
+		- objetivo: acadêmico, como explicar e mostrar a maneira que a tecnologia pode ajudar aqueles que necessitam.
+		- o sistema se conecta aos dispositivos da rede, e pode analisar temperatura, umidade, e pode controlar as luzes, tv, e dispositivos da casa.
+		- no aplicativo o usuário dá o comando, e quando entendido, vai para o servidor e o servidor vai retornar o feedback do sistema e depois a assistente de voz pergunta algo relacionada aquilo.
+		-software: o processamento foi desenvolvido em C no IDE Arduino. desenvolvido no Node-Red rodando no Raspbarry PI. o aplicativo é na plataforma MIT IP.
+		- tecnologias: Raspberry PI 3 Modelo B+, ESP-8266, sensores Pysense e Pytrack, Componentes Pycom Wipy 3 e Pycaom GPY
+		- benefícios: praticidade, rapidez, acessibilidade, conforto, automação, eficiência. 
+
+
+
+
+rupo 5: IIOT- Monitoramento de maquinas industriais
+- IIOT é a internet industrial das coisas, em maquinas, sensores e dispositivos, coletando dados em tempo real, deixando o ambiente produtivo
+projeto: utilização de IOT para aquisição e monitoramento de dados nos processos de estampagem industrial: monitorando o processo de estampagem
+	- o processo de estampagem é muito suscetível a erro, e quem normalmente analisa é os humanos, desperdiçando e gastando muito tempo
+	- o sistema proposto é o SMA-IOT: utiliza diversos sensores para analisar a maquina e os resultados da peça
+	- ESP32, dois núcleos de processamento
+	- sensores de carga, piezoelétricos, LVDT ou laser, sensores térmicos, sensores acústicos e indutivos
+-software e programação: Linguagem, talvez, C++. interrupção do hardware, buffer de dados para evitar perda.
+- conectividade: os dados são coletos e enviados direto para nuvem
+- armazenamento e visualização: dashboard web
+- benefícios dos sistemas1: monitoramento continuo
+
+
+
+
+Grupo 8: Smart Cities (Infraestrutura Urbana) projeto: cidade inteligente Búzios
+- são cidades focadas em bem estra populacional e no bem ambiente, utilizando tecnologias para fazer isso
+- projeto: iniciou em 2011 e acabou em 2014
+	- o principal objetivo é a integração de fontes renováveis a rede elétrica
+	- Hardware: medidores inteligentes bidimensionais, sensores e atuadores para automação, iluminação LED, Geração Solar e eólica + baterias, veículos elétricos e bicicletas elétricas, fossas bioenergias
+	- ao blocos responsáveis pelo projeto foram realmente implementados em búzios, igual os led. sendo do lado esquerdo a luz a vapor e do lado direito o led
+	- Linguagem de programação: Python, C++ e JavaScript. utiliza sistemas de automação e supervisão (SCADA). protocolos industriais para o controle de rede elétrica
+	- tipo de conectividade: PLC (Power Line Communication), GPRS (General Packet Radio Service), Redes de rádio mesh e wi-fi publico
+	- os dados são mostrados em um sistema de monitoramento em Búzios
+	- o projeto foi desenvolvido pela Ampla Energia e mais alguma empresa que não deu tempo de anotar
+
+
+
+Grupo 3: Edge AI- The fantiastic Four Project
+- o projeto foi feito para uma competição que usa IA para resolução de problemas complexos de matemática
+- consiste em pegar 4 ias, gemini, gpt, qwen, e a do elon munk, pega o problema matemático e manda para as 4 ias, filtra as respostas e formula a melhor resposta para que seja apresentada no final
+- o EDGE AI não precisa de internet, porque ela funciona dentro do próprio IOT. não depende de um sistema interno, e como as informações são geradas na hora, garante mais privacidade para o usuário. Os processadores que usam EDGE AI tem um melhor funcionamento.
+	- o projeto funciona em etapas:
+		- primeiro manda para a AI
+		- depois verifica quais métodos se pode usar
+		- e depois passa por uma verificação
+		- vai para seleção que gerencia o sistema, em que seleciona a reposta perfeita
+	- Lista de Hardware: Qualquer computador ou dispositivos disponíveis, 4 AIs diferentes para fazer a solução. no EDGE AI: NVIDIA Jekson e mais alguns que não deu tempo de anotar.
+	- a linguagem de programação: Phyton e Java, R e C++
+	- Conectividade: Offline
+	- Alguns smartphones, maquinas, pilotos automáticos e carros inteligentes usam EDGE devices. 
+	- MQTT: serve para conversação entre as maquinas e o API REST que funciona com o HTTP
+	-conclusão: esse projeto seria bom em escolas porque pode ajudar a entender outros métodos para chegar nos resultados matemáticos. além de utilizasse projeto em questões de matemática, poderia ser usado também por empresas para ajudar na resolução de problemas. se implementasse em escolas, seria usado de forma erronia.
+
+	
+
+
+
+
+
+
+
+
+

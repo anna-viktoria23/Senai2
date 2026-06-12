@@ -1,0 +1,11 @@
+from machine import Pin, ADC #usar na porta 26, 27 e 28
+from utime import sleep
+
+#declarar o potenciometro
+pot = ADC(28)
+
+while True:
+    valor = pot.read_u16() #quando utiliza a porta ADC é para fazer a leitura
+    print(valor) #mostra o valor
+    sleep(0.8)
+    

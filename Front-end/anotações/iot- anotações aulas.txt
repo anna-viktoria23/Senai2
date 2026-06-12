@@ -1,0 +1,75 @@
+vernekho,amarelo e laranja: exemplo de cores positivas
+
+preto, marrom, cinza, roxo: cores negativas
+
+led normal: maior é positivo e o menor é negativo
+- as pernas não podem estar na mesma linha horizontal, e também é bom pular pelo menos uma linha horizontal entre as perninhas. ex: anodo no 35 e o catodo no 37-  no meu, o anodo está no 35 e o catodo no 38, no brodcats.
+- Liga o potenciômetro na perna positiva (maior)
+- perna negativa liga na gnd
+
+230 owns: recomendado para o led
+- não pode estar na mesma linha horizontal
+ultimas cores dos resistores: preto, dourado e prata
+
+
+
+
+
+
+
+
+dia 11/03
+
+Atuadores
+
+O que são?
+	São dispositivos que executam uma ação física em resposta a um comando eletrônico.
+
+Para que servem?
+	São utilizados para transformar um sinal elétrico em movimento ou outra forma de
+energia.
+
+Exemplos:
+	LEDs, motores, displays, entre outros.
+
+
+led RGB- três cores
+- a maior perninha é o gnd
+isoladi- vermelho
+lado do gnd- verde
+ultimo- azul
+
+botão:
+- sem pressionar, ele sepre envia a conexão 1 Pull Up
+- conectado no 3.3- nível alto
+- quando pressiona, ele começa a mandar 0 Pull down
+
+
+Dia 13/03/2026
+Potenciômetro
+pernas: negativo (gnd), positivo (vcc), leitura de dados(sig).
+        esquerda,          direita,         meio
+
+esquerda: 0
+dirwita: 1
+
+
+PWM Pulse Width Modulation (Modulação por Largura de Pulso).= frequencia
+
+PWM permite controlar potência de forma digital, sendo útil para:
+● Brilho de LEDs
+● Velocidade de motores
+● Controle de servos
+● Volume de buzzers passivos
+● Simular comportamento de valores analógicos com precisão digital.
+
+Normalmente deixa a frequencia em 1000
+
+
+
+DHT22
+
+já consegue ligar na porta digital, mas tem que chamara biblioteca DHT
+
+Tem três ligações (de frente) (da esquerda para direita): vcc (ligação positiva), data (ligação digital), nc (not conection, não conecta pois funciona como uma saída de possíveis curtos ou evasão de saída da estática), gnd (conexão negativa).
+

@@ -1,0 +1,172 @@
+/* RESET: Garante que o HTML não tenha margens "escondidas" que estragam o layout */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+/* CABEÇALHO: Estiliza o ID #topo_loja do HTML */
+#topo_loja{
+    background-color: brown;
+    color: antiquewhite;
+    padding: 20px;
+    text-align: center;
+}
+
+/* INTERATIVIDADE: Esconde o checkbox e o label (ícone ☰) no desktop por padrão.
+   Eles só serão úteis quando a tela for pequena. */
+#bt_menu, #label_menu {
+    display: none;
+}
+
+/* MENU: Remove as bolinhas (bullets) da lista <ul> dentro do <nav id="menu"> */
+#menu ul{
+    list-style: none;
+    margin-top: 10px;
+}
+
+/* LAYOUT DESKTOP: Faz os itens <li> ficarem em linha horizontal */
+#menu li{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* LINKS: Remove o sublinhado azul padrão do HTML e aplica a cor amarela */
+#menu a{
+    color: rgb(242, 239, 168);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SEÇÕES: Dá espaçamento entre o topo e o título da seção no HTML */
+.titulo_secao{
+    text-align: center;
+    margin-top: 40px;
+    color: brown;
+}
+
+/* GRID PRINCIPAL: Transforma a <div> "vitrine_grid" em um sistema de colunas.
+   No Desktop, ele cria 3 colunas de tamanhos iguais (1fr). */
+.vitrine_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARD: Desenha a "caixa" em volta de cada <article> do HTML */
+.card{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align:center;
+}
+
+/* IMAGENS: Garante que as imagens dentro dos cards nunca "vazem" para fora da borda */
+.card img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* PREÇO: O display block faz o <span> pular uma linha no HTML automaticamente */
+.preco{
+    display: block;
+    color: #e67e22;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* BOTÃO: Estiliza a tag <button> para ocupar toda a largura (100%) do card pai */
+.bt_pedido{
+    background-color: brown;
+    color: antiquewhite;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* RODAPÉ: Estiliza o rodapé no final do HTML */
+#rodape{
+    background-color: brown;
+    color: rgb(251, 242, 230);
+    padding: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* --- MEDIA QUERIES: AQUI O CSS REORGANIZA O HTML CONFORME O TAMANHO DA TELA --- */
+
+@media screen{
+    #topo_loja h1{
+        letter-spacing: 2px;
+    }
+}
+
+/* TELAS PEQUENAS (480px): Diminui o texto principal para não quebrar a linha */
+@media only screen and (max-width: 480px) {
+    h1{
+        font-size: 1.2rem;
+    }
+}
+
+/* TABLETS (601px até 1024px): O CSS altera a "vitrine_grid" do HTML 
+   de 3 colunas para apenas 2 colunas. */
+@media screen and (min-width:601px) and (max-width:1024px){
+    .vitrine_grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* CELULARES (Até 600px): Grandes mudanças de layout */
+@media screen and (max-width:600px) , (orientation: portrait){
+    
+    /* Faz o ícone de menu (☰) aparecer para o usuário */
+    #label_menu{
+        display: block;
+        font-size: 2.5rem;
+        color:rgb(87, 6, 6);
+        cursor: pointer;
+        margin-top:10px;
+    }
+
+    /* Esconde a lista de links no mobile para não ocupar a tela toda */
+    #menu ul{
+        display: none;
+    }
+
+    /* RELAÇÃO LÓGICA: Se o checkbox #bt_menu estiver marcado (checked), 
+       procure o vizinho #menu e mostre a lista <ul> (display: block) */
+    #bt_menu:checked ~ #menu ul{
+        display: block;
+        padding: 10px 0;
+    }
+
+    /* No celular, o CSS manda a vitrine_grid do HTML ter apenas 1 coluna */
+    .vitrine_grid{
+        grid-template-columns: 1fr;
+    }
+
+    /* O CSS remove o parágrafo de descrição (<p class="desc">) para o card ficar menor */
+    .desc{
+        display: none;
+    }
+
+    /* Faz os itens do menu ficarem um em cima do outro no celular */
+    #menu li{
+        display: block;
+        margin: 15px 0;
+        border-bottom: 1px solid rgb(73, 19, 19);
+        padding-bottom: 10px;
+    }
+}
+
+/* IMPRESSÃO: Se o usuário for imprimir, o CSS esconde botões e menus do HTML 
+   para economizar tinta e papel. */
+@media not screen{
+    #menu, .bt_pedido, #label_menu, #bt_menu{
+        display: none;
+    }
+}

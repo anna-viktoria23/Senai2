@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 5px solid #e74c3c;
+}
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.painel {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+}
+h2 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #bdc3c7;
+  padding-bottom: 5px;
+}
+.grupo-input {
+  margin-bottom: 15px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #7f8c8d;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #95a5a6;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.total {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.total strong {
+  color: #e74c3c;
+  font-size: 1.5rem;
+}
+
+.produto-dica {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.img-produto {
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid #34495e;
+  padding: 5px;
+  background-color: #ecf0f1;
+}
+
+.btn-primario,
+.btn-secundario {
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primario {
+  background-color: #e74c3c;
+  color: white;
+}
+.btn-primario:hover {
+  background-color: #c0392b;
+}
+.btn-secundario {
+  background-color: #95a5a6;
+  color: white;
+  margin-bottom: 15px;
+}
+.btn-secundario:hover {
+  background-color: #7f8c8d;
+}
+
+/* =========================================
+   CLASSES QUE VOCÊ DEVE DESCOMENTAR E COMPLETAR
+   ========================================= */
+
+/* Missão 2: Estilo para quando o mouse entra no banner esportivo (.modo-corrida) */
+/* Dica: Altere a cor de fundo para vermelho (#c0392b) e a cor do texto para amarelo (#f1c40f). A transformação de escala já está pronta! */
+
+.modo-corrida {
+  background-color: #c0392b;
+  color: #f1c40f;
+  transform: scale(1.04);
+}
+.modo-corrida h2 {
+  color: #f1c40f;
+  border-color: #f1c40f;
+}
+
+/* Missão 4: Estilo do card de interesse adicionado (.card-interesse) */
+/* Dica: Adicione uma linha de borda de 2px solid #c0392b, um preenchimento interno (espaçamento) de 15px, pontas arredondadas de 8px e cor de fundo branca (#ffffff) */
+
+.card-interesse {
+  border: 2px solid #c0392b;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}

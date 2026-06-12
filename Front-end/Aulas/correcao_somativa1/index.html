@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoDrive - Acelere seu Sonho</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>AutoDrive 🏎️</h1>
+        <p id="status-oficina">Ligando motores...</p>
+    </header>
+
+    <main class="container">
+        <section id="banner-esportivo" class="painel">
+            <h2>Modelos Esportivos 2026 🏁</h2>
+            <p>Passe o mouse aqui para ativar o Modo Corrida.</p>
+        </section>
+
+        <section class="painel">
+            <h2>Calculadora de Combustível (Média: 12km / L)</h2>
+            
+            <div class="produto-dica">
+                <img src="src/images/carro.png" alt="Carro Esportivo" class="img-produto">
+            </div>
+
+            <div class="grupo-input">
+                <label for="km-viagem">Qual a distância da sua viagem (em Km)?</label>
+                <input type="number" id="km-viagem" min="1" value="0">
+            </div>
+            <p class="total">Você precisará de: <strong id="resultado-combustivel">0</strong> Litros</p>
+        </section>
+
+        <section class="painel">
+            <h2>Registrar Test-Drive</h2>
+            <div class="grupo-input">
+                <label>Qual modelo você deseja testar?</label>
+                <input type="text" id="modelo-carro" placeholder="Ex: Mustang, Porsche, Fusca...">
+            </div>
+            <button id="btn-interessado" class="btn-primario">Tenho Interesse</button>
+        </section>
+
+        <section class="painel vitrine">
+            <h2>Fila de Clientes</h2>
+            <button id="btn-reset" class="btn-secundario">Reiniciar Painel</button>
+            
+            <div id="lista-carros">
+                </div>
+        </section>
+    </main>
+    <script src="src/scripts/script.js"></script>
+</body>
+</html>

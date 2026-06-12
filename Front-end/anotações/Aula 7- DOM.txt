@@ -1,0 +1,27 @@
+Aula 7- DOM
+
+REVISÃO RAPIDA - ARVORE DOM
+	Dom organiza o HTML como uma árvore de pai e filho.
+	Agora vamos dar um passo além: navegar pela árvore a partir de um elemento já encontrado, como subir para o pai, descer para os filhos ou andar para o lado (irmãos).
+EXEMPLO: 
+document
+
+└── <body>
+	└── <section class="lista-noticias">   ← PAI
+		├── <article class="card">             ← FILHO 1 (firstElementChild)
+		├── <article class="card">             ← FILHO 2
+		└── <article class="card">             ← FILHO 3 (lastElementChild)
+Lembre-se: querySelector acha o elemento. A navegação na árvore parte de um elemento já encontrado.
+
+
+NAVEGAÇÃO: parentElement
+	A propriedade parentElement retorna o elemento pai direto de um nó. É usada quando você encontrou um filho e precisa acessar ou modificar o container que o envolve.
+	Onde usar: Remover um card inteiro ao clicar no botão "Fechar" que está dentro dele; destacar a seção que contém o elemento clicado.
+		
+		const btnFechar = document.querySelector('.btn-fechar');
+			// A partir do botão, subimos para o card que o contém
+		const card = btnFechar.parentElement;
+			// Agora podemos manipular o card inteiro
+		card.style.display = 'none'; // Esconde o card pai
+
+Atenção: parentElement sobe um nível apenas. Para subir dois níveis use elemento.parentElement.parentElement.

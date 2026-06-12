@@ -1,0 +1,13 @@
+#topo-loja {
+    background-color: #2c3e50;
+    color: rgb(180, 78, 78);
+    padding: 30px;
+    text-align: center;
+}
+
+.link-menu {
+    color: #f8feff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}

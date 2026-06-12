@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+ /* CABEÇALHO  */
+/* editanto o header */
+#topo_loja{
+    background-color: brown;
+    color: antiquewhite;
+    padding: 20px;
+    text-align: center;
+}
+
+/* editando o botão do menu */
+#bt_menu, #label_menu {
+    display: none;
+}
+
+/* editanto a lista do menu */
+#menu ul{
+    list-style: none;
+    margin-top: 10px;
+}
+
+/* editanto as linhas da lista */
+#menu li{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+/* contraste */
+#menu a{
+    color: rgb(242, 239, 168);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECTIONS */
+.titulo_secao{
+    text-align: center;
+    margin-top: 40px;
+    color: brown;
+}
+
+/* ESTRUTURA MIAN  */
+
+.vitrine_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.card{
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align:center;
+}
+
+.card img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.preco{
+    display: block;
+    color: #e67e22;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.bt_pedido{
+    background-color: brown;
+    color: antiquewhite;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#rodape{
+    background-color: brown;
+    color: rgb(251, 242, 230);
+    padding: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* MEDIA QUERY */
+
+@media screen{
+    #topo_loja h1{
+        letter-spacing: 2px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    h1{
+        font-size: 1.2rem;
+    }
+}
+
+/* TELAS ENTRE 601 E 1024PX TABELET */
+
+@media screen and (min-width:601px) and (max-width:1024px){
+    .vitrine_grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* TELAS ATÈ 600px- celular */
+
+@media screen and (max-width:600px) , (orientation: portrait){
+    #label_menu{
+        display: block;
+        font-size: 2,5rem;
+        color:rgb(87, 6, 6);
+        cursor: pointer;
+        margin-top:10px;
+    }
+
+
+/*esconde o menu no icone*/
+#menu ul{
+    display: none;
+}
+
+/*Faz a ação do clik para aparecer o menu*/
+#bt_menu:checked ~ #menu ul{
+    display: block;
+    padding: 10px 0;
+}
+
+.vitrine_grid{
+    grid-template-columns: 1fr;
+}
+
+.desc{
+    display: none; /*desaparece a descrição para o celular*/
+}
+
+#menu li{
+    display: block;
+    margin: 15px 0; /*por ser block já vem espaço*/
+    border-bottom: 1px solid rgb(73, 19, 19);
+    padding-bottom: 10px;
+}
+}
+
+@media not screen{
+    #menu, .bt_pedido, #label-menu, #bt_menu{
+        display: none;
+    }
+}
