@@ -7,9 +7,9 @@ import AppNavigator from "./src/navigation";
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationConteiner>
+      <NavigationContainer>
         <AppNavigator />
-      </NavigationConteiner>
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
