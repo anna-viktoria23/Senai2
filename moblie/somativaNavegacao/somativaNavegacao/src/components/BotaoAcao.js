@@ -13,7 +13,7 @@ export default function BotaoAcao({ texto, onPress, ativo }) {
 
 const styles = StyleSheet.create({
   botao: {
-    backgroundColor: '#1DB954',
+    backgroundColor: '#FF6B35',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   botaoAtivo: {
-    backgroundColor: '#158A3E',
+    backgroundColor: '#CC5220',
   },
   texto: {
     fontSize: 15,

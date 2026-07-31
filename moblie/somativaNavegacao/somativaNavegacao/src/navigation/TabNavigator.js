@@ -1,4 +1,4 @@
-//Anna viktoria Alacamini de Carvalho
+//Anna Viktoria Alacamini de Carvalho
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -8,12 +8,11 @@ import StackNavigator from "./StackNavigator";
 
 const Tab = createBottomTabNavigator();
 
-// TODO: registrar Tab.Screen StackNavigator com name="Musicas"
-// TODO: registrar Tab.Screen ListaScreen com name="Lista"
-// TODO: registrar Tab.Screen PerfilScreen com name="Perfil"
+// TODO: registrar Livros (StackNavigator), Lista (ListaScreen) e Perfil (PerfilScreen)
+// Não esquecam dos parenteses no return
 export default function TabNavigator() {
   return <Tab.Navigator screenOptions={{ headerShown: false }}>
-    <Tab.Screen name="Musicas" component={StackNavigator} />
+    <Tab.Screen name="Livros" component={StackNavigator} />
     <Tab.Screen name="Lista" component={ListaScreen} />
     <Tab.Screen name="Perfil" component={PerfilScreen} />
   </Tab.Navigator>;

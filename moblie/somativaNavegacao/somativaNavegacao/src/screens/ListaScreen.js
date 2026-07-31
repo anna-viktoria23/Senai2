@@ -1,45 +1,42 @@
-//Anna viktoria Alacamini de Carvalho
+//Anna Viktoria Alacamini de Carvalho
 
 import { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
-import CardMusica from "../components/CardMusica";
-// TODO: apos importar o componente CardMusica, adicione a linha abaixo:
-// import { CardMusica } from '../components';
+import { CardLivro } from "../components";
 
-// Dados de exemplo para voce visualizar o renderItem funcionando
-// Em um app real, esses itens chegariam via route.params enviados pela DetalheScreen
-const musicasMock = [
+const livrosMock = [
   {
     id: "1",
-    titulo: "Bohemian Rhapsody",
-    genero: "Rock / Opera",
-    plataforma: "Spotify / Apple Music",
+    titulo: "Dom Casmurro",
+    genero: "Romance / Drama",
+    editora: "Companhia das Letras",
     nota: "10/10",
   },
   {
     id: "3",
-    titulo: "HUMBLE.",
-    genero: "Hip-hop / Rap",
-    plataforma: "Spotify / Apple Music",
-    nota: "9/10",
+    titulo: "O Senhor dos Aneis",
+    genero: "Fantasia / Aventura",
+    editora: "HarperCollins",
+    nota: "10/10",
   },
 ];
-// passar route como parâmetro para uso dos parametros de rota
-export default function ListaScreen(route) {
-  const [itensSalvos, setItensSalvos] = useState(musicasMock);
+
+// TODO: adicionar { route } como parametro da funcao
+export default function ListaScreen({route}) {
+  const [itensSalvos, setItensSalvos] = useState(livrosMock);
+
+  // TODO: utilizar useEffect para observar route.params e adicionar o novo livro ao estado da lista
+  // useEffect(() => {
+  //   if (route.params?.novoLivro) {
+  //     setItensSalvos(...);
+  //   }
+  // }, [... colocar a variavel de estado]);
 
   useEffect(() => {
-    if (route.params?.novaMusica) {
-      setItensSalvos((prev) => [...prev, route.params.novaMusica])
+    if (route.params?.novoLivro) {
+      itensSalvos(livrosMock)
     }
-  }, [route.params?.novaMusica])
-
-  // Para receber uma musica salva da DetalheScreen via route.params:
-  //  useEffect(() => {
-  //   if (route.params?.novaMusica) {
-  //     setItensSalvos((prev) => [...prev, route.params.novaMusica]);
-  //   }
-  // }, [route.params?.novaMusica]);
+  }, [...setItensSalvos])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -51,18 +48,22 @@ export default function ListaScreen(route) {
         data={itensSalvos}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <CardMusica titulo={item.titulo} genero={item.genero} plataforma={item.plataforma} nota={item.nota} />
+          <CardLivro
+            titulo={item.titulo}
+            genero={item.genero}
+            editora={item.editora}
+            nota={item.nota}
+          />
         )}
         ListEmptyComponent={
           <View style={styles.conteudo}>
             <View style={styles.iconeContainer}>
-              <Text style={styles.icone}>M</Text>
+              <Text style={styles.icone}>L</Text>
             </View>
-            <Text style={styles.titulo}>Nenhuma musica salva</Text>
+            <Text style={styles.titulo}>Nenhum livro salvo</Text>
             <Text style={styles.descricao}>Sua lista aparecera aqui</Text>
             <Text style={styles.dica}>
-              Acesse uma musica e toque em "Adicionar a Lista" para salva-la
-              aqui.
+              Acesse um livro e toque em "Adicionar a Lista" para salva-lo aqui.
             </Text>
           </View>
         }
@@ -75,15 +76,15 @@ export default function ListaScreen(route) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#121212",
+    backgroundColor: "#0A0A0A",
   },
   header: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#1A1A1A",
     paddingHorizontal: 20,
     paddingTop: 20,
     paddingBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: "#282828",
+    borderBottomColor: "#2A2A2A",
   },
   headerTitulo: {
     fontSize: 26,
@@ -103,8 +104,8 @@ const styles = StyleSheet.create({
   iconeContainer: {
     width: 96,
     height: 96,
-    borderRadius: 48,
-    backgroundColor: "#1DB954",
+    borderRadius: 16,
+    backgroundColor: "#FF6B35",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 20,
@@ -123,23 +124,15 @@ const styles = StyleSheet.create({
   },
   descricao: {
     fontSize: 16,
-    color: "#B3B3B3",
+    color: "#AAAAAA",
     fontWeight: "600",
     textAlign: "center",
     marginBottom: 12,
   },
   dica: {
     fontSize: 13,
-    color: "#6B6B6B",
+    color: "#666666",
     textAlign: "center",
     lineHeight: 20,
-  },
-  card: {
-    backgroundColor: "#1E1E1E",
-    marginHorizontal: 16,
-    marginTop: 12,
-    borderRadius: 12,
-    padding: 16,
-    minHeight: 72,
   },
 });

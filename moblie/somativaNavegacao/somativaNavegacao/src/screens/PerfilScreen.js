@@ -23,15 +23,15 @@ export default function PerfilScreen() {
         <View style={styles.separador} />
 
         <View style={styles.infoLinha}>
-          <Text style={styles.infoLabel}>Musicas salvas</Text>
+          <Text style={styles.infoLabel}>Livros salvos</Text>
           <Text style={styles.infoValor}>0</Text>
         </View>
         <View style={styles.infoLinha}>
-          <Text style={styles.infoLabel}>Musicas favoritas</Text>
+          <Text style={styles.infoLabel}>Livros favoritos</Text>
           <Text style={styles.infoValor}>0</Text>
         </View>
         <View style={styles.infoLinha}>
-          <Text style={styles.infoLabel}>Ouvinte desde</Text>
+          <Text style={styles.infoLabel}>Leitor desde</Text>
           <Text style={styles.infoValor}>Maio 2026</Text>
         </View>
       </View>
@@ -46,15 +46,15 @@ export default function PerfilScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#0A0A0A',
   },
   header: {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#1A1A1A',
     paddingHorizontal: 20,
     paddingTop: 20,
     paddingBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: '#282828',
+    borderBottomColor: '#2A2A2A',
   },
   headerTitulo: {
     fontSize: 26,
@@ -63,22 +63,22 @@ const styles = StyleSheet.create({
   },
   cartao: {
     margin: 16,
-    backgroundColor: '#1E1E1E',
+    backgroundColor: '#1A1A1A',
     borderRadius: 16,
     padding: 24,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#282828',
+    borderColor: '#2A2A2A',
   },
   avatar: {
     width: 88,
     height: 88,
-    borderRadius: 44,
-    backgroundColor: '#1DB954',
+    borderRadius: 16,
+    backgroundColor: '#FF6B35',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 3,
-    borderColor: '#158A3E',
+    borderColor: '#CC5220',
     marginBottom: 16,
   },
   avatarTexto: {
@@ -94,13 +94,13 @@ const styles = StyleSheet.create({
   },
   email: {
     fontSize: 14,
-    color: '#6B6B6B',
+    color: '#666666',
     marginBottom: 20,
   },
   separador: {
     width: '100%',
     height: 1,
-    backgroundColor: '#282828',
+    backgroundColor: '#2A2A2A',
     marginBottom: 16,
   },
   infoLinha: {
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   },
   infoLabel: {
     fontSize: 14,
-    color: '#B3B3B3',
+    color: '#AAAAAA',
   },
   infoValor: {
     fontSize: 14,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   },
   botao: {
     marginHorizontal: 16,
-    backgroundColor: '#1DB954',
+    backgroundColor: '#FF6B35',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',

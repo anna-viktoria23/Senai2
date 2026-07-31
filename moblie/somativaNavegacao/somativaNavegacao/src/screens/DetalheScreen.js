@@ -1,10 +1,7 @@
-//Anna viktoria Alacamini de Carvalho
+//Anna Viktoria Alacamini de Carvalho
 
-// TODO: importar useState — adicione a linha abaixo no topo:
-// import { useState } from 'react';
 import { useState } from "react";
 import {
-  Button,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -13,26 +10,22 @@ import {
   View,
 } from "react-native";
 
-// Dados de fallback — usados enquanto a navegacao nao estiver configurada
-const musicaMock = {
-  titulo: "Bohemian Rhapsody",
-  genero: "Rock / Opera",
-  plataforma: "Spotify / Apple Music",
+const livroMock = {
+  titulo: "Dom Casmurro",
+  genero: "Romance / Drama",
+  editora: "Companhia das Letras",
   nota: "10/10",
   sinopse:
-    "Uma das composicoes mais iconicas do rock. Queen criou uma obra atemporal que mistura balada, opera e hard rock em uma unica faixa de seis minutos.",
+    "Bento Santiago narra sua historia ao lado de Capitu, marcada pela duvida e pelo ciume. Machado de Assis entrega uma das obras mais discutidas da literatura brasileira.",
 };
 
-// TODO: adicionar { route, navigation } como parametros quando a navegacao estiver configurada
-// Os dados chegam via route.params quando o usuario toca em uma musica na HomeScreen
+// TODO: adicionar { route, navigation } como parametros
 export default function DetalheScreen({route, navigation}) {
-  const {titulo, genero, plataforma, nota, sinopse } = route?.params ?? musicaMock;
-  // Defina os parametros de rota, pegando todos os campos presentes no objeto musicas definido na HomeScreen
-  // const { passar parametros das musicas: plataforma, nota etc... } = route?.params ?? musicaMock;
+  // TODO: const { titulo, demais parametros} = route?.params ?? livroMock;
 
-  const [isSalvo, setIsSalvo] = useState(false)
-  // TODO: estado booleano para controlar se a musica foi salva na lista
-  // const [isSalvo, setIsSalvo] = useState(false);
+  const {titulo, genero, editora, nota, sinopse} = route?.params ?? livroMock
+
+  const [isSalvo, setIsSalvo] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -45,8 +38,8 @@ export default function DetalheScreen({route, navigation}) {
           <Text style={styles.heroSubtitulo}>{genero}</Text>
           <View style={styles.heroMeta}>
             <View style={styles.metaItem}>
-              <Text style={styles.metaLabel}>Plataforma</Text>
-              <Text style={styles.metaValor}>{plataforma}</Text>
+              <Text style={styles.metaLabel}>Editora</Text>
+              <Text style={styles.metaValor}>{editora}</Text>
             </View>
             <View style={styles.metaSeparador} />
             <View style={styles.metaItem}>
@@ -61,16 +54,20 @@ export default function DetalheScreen({route, navigation}) {
           <Text style={styles.detalheTexto}>{sinopse}</Text>
         </View>
 
-        <Button
-          onPress={() => setIsSalvo(prev => !prev)}
+        <TouchableOpacity
           style={[styles.botao, isSalvo && styles.botaoAtivo]}
-          title={isSalvo ? 'Remover da Lista' : 'Adicionar a Lista'}
-        />
-        <TouchableOpacity style={styles.botao}
-          onPress={() => setIsSalvo(prev => !prev)}
-          style={[styles.botao, isSalvo && styles.botaoAtivo]}
-          texto= {isSalvo ? 'Remover da Lista' : 'Adicionar a Lista'}>
-          <Text style={styles.botaoTexto}>Adicionar a Lista</Text>
+          onPress={() => {
+            if (!isSalvo) {
+              navigation.navigate("Lista", {
+                novoLivro: {titulo, genero, editora, nota, sinopse }
+              });
+            }
+            setIsSalvo((prev) => !prev);
+          }}
+        >
+          <Text style={styles.botaoTexto}>
+            {isSalvo ? "Remover da Lista" : "Adicionar a Lista"}
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
@@ -80,21 +77,21 @@ export default function DetalheScreen({route, navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#121212",
+    backgroundColor: "#0A0A0A",
   },
   hero: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#1A1A1A",
     alignItems: "center",
     paddingVertical: 28,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: "#282828",
+    borderBottomColor: "#2A2A2A",
   },
   heroIcone: {
     width: 80,
     height: 80,
-    borderRadius: 40,
-    backgroundColor: "#1DB954",
+    borderRadius: 16,
+    backgroundColor: "#FF6B35",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 14,
@@ -113,14 +110,14 @@ const styles = StyleSheet.create({
   },
   heroSubtitulo: {
     fontSize: 14,
-    color: "#B3B3B3",
+    color: "#AAAAAA",
     marginBottom: 16,
   },
   heroMeta: {
     flexDirection: "row",
     alignItems: "center",
     gap: 20,
-    backgroundColor: "#282828",
+    backgroundColor: "#252525",
     borderRadius: 12,
     paddingVertical: 10,
     paddingHorizontal: 24,
@@ -130,7 +127,7 @@ const styles = StyleSheet.create({
   },
   metaLabel: {
     fontSize: 11,
-    color: "#6B6B6B",
+    color: "#666666",
     marginBottom: 2,
   },
   metaValor: {
@@ -141,7 +138,7 @@ const styles = StyleSheet.create({
   metaValorNota: {
     fontSize: 13,
     fontWeight: "700",
-    color: "#1DB954",
+    color: "#FF6B35",
   },
   metaSeparador: {
     width: 1,
@@ -150,9 +147,11 @@ const styles = StyleSheet.create({
   },
   secao: {
     margin: 16,
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "#1A1A1A",
     borderRadius: 12,
     padding: 16,
+    borderLeftWidth: 3,
+    borderLeftColor: "#FF6B35",
   },
   secaoTitulo: {
     fontSize: 16,
@@ -162,20 +161,20 @@ const styles = StyleSheet.create({
   },
   detalheTexto: {
     fontSize: 14,
-    color: "#B3B3B3",
+    color: "#AAAAAA",
     lineHeight: 22,
   },
   botao: {
     margin: 16,
     marginTop: 4,
-    backgroundColor: "#1DB954",
+    backgroundColor: "#FF6B35",
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: "center",
     marginBottom: 32,
   },
   botaoAtivo: {
-    backgroundColor: "#158A3E",
+    backgroundColor: "#CC5220",
   },
   botaoTexto: {
     fontSize: 15,
