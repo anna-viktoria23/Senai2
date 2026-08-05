@@ -1,0 +1,216 @@
+vernekho,amarelo e laranja: exemplo de cores positivas
+
+preto, marrom, cinza, roxo: cores negativas
+
+led normal: maior é positivo e o menor é negativo
+- as pernas não podem estar na mesma linha horizontal, e também é bom pular pelo menos uma linha horizontal entre as perninhas. ex: anodo no 35 e o catodo no 37-  no meu, o anodo está no 35 e o catodo no 38, no brodcats.
+- Liga o potenciômetro na perna positiva (maior)
+- perna negativa liga na gnd
+
+230 owns: recomendado para o led
+- não pode estar na mesma linha horizontal
+ultimas cores dos resistores: preto, dourado e prata
+
+
+
+
+
+
+
+
+dia 11/03
+
+Atuadores
+
+O que são?
+	São dispositivos que executam uma ação física em resposta a um comando eletrônico.
+
+Para que servem?
+	São utilizados para transformar um sinal elétrico em movimento ou outra forma de
+energia.
+
+Exemplos:
+	LEDs, motores, displays, entre outros.
+
+
+led RGB- três cores
+- a maior perninha é o gnd
+isoladi- vermelho
+lado do gnd- verde
+ultimo- azul
+
+botão:
+- sem pressionar, ele sepre envia a conexão 1 Pull Up
+- conectado no 3.3- nível alto
+- quando pressiona, ele começa a mandar 0 Pull down
+
+
+Dia 13/03/2026
+Potenciômetro
+pernas: negativo (gnd), positivo (vcc), leitura de dados(sig).
+        esquerda,          direita,         meio
+
+esquerda: 0
+dirwita: 1
+
+
+PWM Pulse Width Modulation (Modulação por Largura de Pulso).= frequencia
+
+PWM permite controlar potência de forma digital, sendo útil para:
+● Brilho de LEDs
+● Velocidade de motores
+● Controle de servos
+● Volume de buzzers passivos
+● Simular comportamento de valores analógicos com precisão digital.
+
+Normalmente deixa a frequencia em 1000
+
+
+
+
+
+
+
+
+DHT22
+
+já consegue ligar na porta digital, mas tem que chamara biblioteca DHT
+
+Tem três ligações (de frente) (da esquerda para direita): vcc (ligação positiva), data (ligação digital), nc (not conection, não conecta pois funciona como uma saída de possíveis curtos ou evasão de saída da estática), gnd (conexão negativa).
+Conecta o resistor no mesma linha da porta, mas conecta no positivo o outro lado do resistor para dar uma melhor precisão.
+
+slides:
+- o que é:
+O DHT22 é um sensor que mede a temperatura e a umidade do ambiente de forma digital. Ele é amplamente utilizado em projetos de automação residencial, monitoramento climático e estações meteorológicas.
+
+-o que é preciso para ligar:
+* Componentes necessários:
+	° 1 Sensor DHT22
+	° 1 Resistor 10kΩ (pode ser usado entre o VCC e o pino de dados se necessário)
+	° Protoboard
+	° Fios jumper
+* Portas usadas:
+	° Pino de dados conectado a uma GPIO do Raspberry Pi Pico (por exemplo, GP15)
+* Bibliotecas necessárias:
+	° dht (já integrada em MicroPython no Wokwi)
+	° machine
+	° utime
+
+- Conexão com o RASPBERRY PI PICO
+* VCC do DHT22 -> 3V3 (OUT) do Raspberry Pi Pico
+* GND do DHT22 -> GND do Raspberry Pi Pico
+* DATA do DHT22 -> GP15 do Raspberry Pi Pico
+
+
+Explicação dos principais comandos novos:
+* DHT22(Pin(15)) cria um objeto sensor ligado ao pino GP15.
+* sensor.measure() solicita uma nova medição.
+* sensor.temperature() retorna a temperatura em graus Celsius.
+* sensor.humidity() retorna a umidade relativa do ar (%).
+* O sensor precisa de um intervalo mínimo entre leituras (por isso o sleep(2)).
+
+CÓDIGO: 
+from machine import Pin
+from utime import sleep
+from dht import DHT22
+
+sensor_temp = DHT22(Pin(15))
+
+while True:
+    # Diz ao sensor que ele iniciará/solicitará uma LEITURA
+    sensor_temp.measure()
+    
+    # Leitura da UMIDADE
+    umidade = sensor_temp.humidity()
+    
+    
+    # Leitura da TEMPERATURA
+    temperatura = sensor_temp.temperature()
+    
+    print("A umidade é: ", umidade)
+    print("A temperatura é: ", temperatura)
+    
+    
+    sleep(2)
+
+
+
+
+
+
+
+
+
+
+
+
+SENSOR ULTRASSÔNICO HC-SR04
+
+trig: emite o som (boca do morcego)
+echo: o que ouve o som
+|_ coloca o resistor aqui para evitar a queima, já que ele vai devolver um Pulso Elétrico grande com um risco de queimar a placa
+
+ultime: dessa vez vai usar o tick- emissão do sinal para um tempo muito rapido (0,00001)
+|_
+|_
+
+-o QUE É:
+
+
+
+
+
+BUZZER:
+ativos: como um led
+passivos: pwm - sem isso ele fica muito baixo.
+|_ o da sala é o passivo. tem o positivo e o ativo.
+Não é bom colocar no maximo ou no minimo, varie o valor.
+
+
+
+
+
+PIR- Sensor infravermelho
+- leitura de 1 e zero: 1- detectou 0- nada
+- dá para calibrar.
+- 180 graus
+- muito sensivel
+- tem ligação 3V3, GND, e a porta (+, porta, -)
+
+
+
+
+
+
+
+
+LDR-
+resistencia que varia conforme a intencidade da luz
+- resistor de 10Kowms
+- ADC
+
+MQTT
+- não precisa de confirmação
+- Publish/Subscribe (Publicar/Assinar) se falam atraves do broker, mas não se comunicam diretamente
+- qos 0: não emergencial, em tempo real, manda e esquece, so se importa se vai cehgar
+- qos 1: garante a entrega rápida
+- qos 2: mais lento, mas não perde a conexão, a entrega é unica
+- LoRaWAN
+
+
+
+BRAINSTORM DO PROJETO:
+Brainstorm
+Primeiro começamos pensando em fazer um sistema de uma loja, que utilizaria o sensor de movimento e o buzzer, mas decartamos a ideia por não atingir a quantidade minima de componentes e por ser algo já existente. Após, tivemos a ideia de colocar um sistema em um carro que ao se aproximar muito de algo, com risco de bater, irá apitar e ascender uma luz como alerta e ter um sensor de temperatura no motor para avisar caso o motor ultrapasse de tal temperatura e tivesse o risco de estragar.
+
+PESQUISA ABNT DO PROJETO: 
+Fontes: https://drtsecurity.com.br/sistema-de-alarmes-de-intrusao-como-funciona/ problema: eventod não ameaçadores podem ser erroneamente detectados, causando incomodo, roubos
+
+https://www.verisure.com.br/blog/sistema-de-cameras-de-monitoramento - diferença entre o sistema de câ,0meras de monitoramento e o sistema de alarme de monitoramento
+
+
+
+
+
+
+

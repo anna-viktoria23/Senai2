@@ -1,0 +1,41 @@
+Gerenciamento de Estado
+
+O QUE É?
+Estado é qualquer tipo de dado que seja alterado na tela.
+Ex: instagram tem alguma animação quando você interage. algo que muda. Placar de jogo atualizado é alterado para exibir o valor atual dos pontos.
+Estado é qualquer dado que, quando muda, precisa fazer a interface reagir e se atualizar.
+Quando um componente é atualizado e tem um valor alterado, significa que seu estado mudou.
+
+Tipos de Gerenciamento:
+Estado local: faz parte de um único componente. Ex: Um botão de mostrar/ocultar senha. controlado via useState
+Estado Global: Dados compartilhado por todo app. Ex: Tema (Dark/Light), dados do usuário logado.
+Estado de Servidor: Dados que vêm de fora (API/Banco de Dados). Lida com cache, loading e erros. Ferramentas: React Query, SWR.
+
+O QUE SÃO HOOKS?
+são funções que permitem que componentes funcionais se conectem ao sistema interno do React. Esse sistema internocontrla duas coisas: Estado e ciclo de vida.
+	- useSate: serve para atualização básica. cria uma variável de estado. chata função de atualização causa a re-renderização da tela. 
+		° Funcionamento: Ela devolve duas coisas: a variável que guarda o valor atual e uma função para atualizar esse valor
+		° Regra de ouro: sempre que a função de atualização é chamada, o React Native "desenha" a tela novamente com a nova informação
+
+REGRAS DE UTILIZAÇÃO:
+o React não executa os Hooks de forma aleatória.
+Internamente, ele mantém uma lista ordenada de todos os Hooks do componente — e depende que essa lista seja sempre a mesma a cada renderização.
+Se a ordem mudar entre uma renderização e outra, o React perde o controle de qual Hook é qual e o comportamento do componente se torna imprevisível.
+As Golden Rules existem para garantir essa ordem. São duas regras simples que, se seguidas, evitam a maioria dos bugs relacionados a Hooks.
+
+GOLDEN RULE 1:
+Chame os Hooks apenas no "Top Level": chame os hooks sempre na raiz do componente, na mesma ordem toda vez. o React depende dessa ordem para funcionar.
+
+GOLDEN RULE 2:
+Chame os hooks apenas d=de dentro de funções do React: chame os hooks apenas dentro de componentes funcionais React ou dentro de Custom Hooks - nunca em funções utilitárias
+
+USEREF:
+o useRef também guarda informações, como o useState, mas com uma diferença crucial: ele não redenha a tela quando o valor muda.
+É usado para dois casos: guardar valores internos sem causar re-render, e armazenar referencias diretas a elementos da interface (alterar foco em campos de texto)
+
+USEEFFECT:
+o useEffect execulta código com efeitos colaterais fora do fluxo de renderização. o React renderiza o componente primeiro e só depois execulta o useEffect. 
+Ele pode ser usado para consumir APIs, buscar dados externos etc. 
+Você diz ao useEffect: "Ei, depois que a tela estiver pronta, vá buscar esse dados para mim".
+funcionamento: Ele recebe uma função (o que fazer) e uma lista de dependências (quando fazer)
+O truque: Se a lista estiver vazia [], ele executa só uma vez quando a tela abre. se tiver uma variável lá dentro [contador], ele executa toda vez que essa variável mudar. Sem o array ele executa toda vez que a tela é renderizada. TEM QUE TER UMA LISTA, VAZIA OU NÃO

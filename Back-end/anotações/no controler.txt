@@ -1,0 +1,9 @@
+no controler:
+primeiro ele irá verificar se a requisição tem algum arquivo, caso não tenha ele dará erro. Agora, caso tenha o erro, ele ira salvar esse arquivo numa url. (essa url será a utilizada no banco para armazenar a imagem).
+
+no service:
+cria  a url e cria uma espécie da tabela onde é especificado o nome,tipo, tamanho e a url que foi criada.
+
+uploads: Pasta que salva as imagens, ela é criada quando se faz a configuração do multer.a pasta fica fora da src por motivos de segurança, além de ter permiddões restritas e contar com um serviço de armazenamento, que pode ser por nuvem ou local (disco rígido). 
+No Nginx: remover ou bloquear qualquer interpretador de código
+

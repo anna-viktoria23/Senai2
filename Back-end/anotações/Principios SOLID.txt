@@ -1,0 +1,115 @@
+Principios SOLID
+
+São cinco princípios de desing de software que ajudam a criar códigos mais fáceis  de manter, entender e estender ao longo do tempo.
+	Importante: Eles não são regras rígidas, mas guias para transformar código funcional em software de alta qualidade profissional.
+	S - Single Responsibility Principle (SRP)
+	O - Open/Closed Principle (OCP)
+	L - Liskov Substitution Principle (LSP)
+	I - Interface Segregation Principle (ISP)
+	D - Dependency Inversion Principle (DIP)
+
+primeiro: S - SRP (Single Responsibility Principle)
+	O principio de responsabilidade única  afirma que uma classe ou funções devem ter apenas um motivo para mudar.
+	Lembre-se: uma função não deve burcar dados, processa-los e formatar a resposta ao mesmo tempo
+	É o caso ds estrutura que montamos na API Sabor Digital. Tudo está sendo feito no arquivo app.js
+
+
+Segundo: O - Open/Closed Principle (OCP)
+	Entidades de software deve, estar abertas para extensão, mas fechadas para modificação.
+	Atenção: Você deve conseguir adicionar novos comportamentos sem alterar o código fonte original.
+
+
+Terceiro: L - Liskov Substitution Principle (LSP)
+	objetos de uma subclasse devem poder substituir objetos da classe pai sem quebrar a aplicação.
+	Dica: Se Classe B é herdeira de Classe A, então o programa deve funcionar normalmente se trocarmos A por B
+
+
+Quarto: I - Interface Segregation Principle (ISP)
+	Clientes não devem ser forçados a depender de interfaces ou métodos que não utilizam.
+	Lembre-se: É melhor ter várias interfaces específicas do que uma única interface "generalista" e pesada.
+	Ex: Se na classe AVES é a pai, e dentro dela tem os atributos de Bicar e Voar, e ela tiver uma classe PICA-PAU como filha, os atributos serão bem aproveitados. Mas, se a outra classe for a PINGUIM, o Voar já não se daria bem. Por isso, como nem todas as classes filhas de AVES poderão voar, o correto seria colocar o atributo Voar apenas nas classes filhas que tem a capacidade de Voar.
+
+
+Quinto: D - Dependency Inversion Principle (DIP)
+	Dpenda de abstrações e não de implementações concretas.
+	Importante: Classes de alto nível não devem criar instâncias de suas dependências de baixo nível diretamente (evite o uso excessivo de *new* dentro da classe
+
+Resumo:
+SOLID: conjunto de 5 princípios para design de código limpo e escalável.
+SRP: Cada parte do código deve ter apenas uma responsabilidade
+OCP: Código extensível sem necessidade de alterar o que já funciona
+
+
+
+
+Arquitetura MVC: Organizando o caos no desenvolvimento de APIs
+
+OBJETIVO:
+•Compreender o conceito e o funcionamento do padrão arquitetural MVC (Model-View-Controller).
+•Identificar as responsabilidades individuais de cada camada: Modelo, Visão e Controlador.
+•Diferenciar a arquitetura MVC de modelos monolíticos e outras abordagens de camadas.
+•Analisar os benefícios da Separação de Preocupações (SoC) na escalabilidade de sistemas.
+
+O QUE É SOLID:
+	São cinco princípios de design de software que ajudam a criar códigos mais fáceis de manter, entender e estender ao longo do tempo.
+	Importante: Eles não são regras rígidas, mas guias para transformar código funcional em software de alta qualidade profissional.
+
+S - Single Responsibility Principle (SRP)
+O - Open/Closed Principle (OCP)
+L - Liskov Substitution Principle (LSP)
+I - Interface Segregation Principle (ISP)
+D - Dependency Inversion Principle (DIP)
+
+O PROBLEMA DA ARQUITETURA MONOLÍTICA:
+	O caos do "Tudo no mesmo lugar"
+	- E sistemas simples, é comum misturar lógica de negócio, acesso a dados e resposta HTTP em um único arquivo.
+	- Consequencia: Dificuldade extrema de manutenção
+	- Um pequeno ajuste (como adicionar um campo) pode levar horas e gerar bugs inesperados em outras partes do sistema.
+
+O CONCEITO MVC:
+A Planta baixa do software
+	- O MVC divide a aplicação em três componentes principais.
+	- Funciona como planta arquitetônica: define onde cada peça da lógica deve residir.
+	- Baseia-se no principio de Separação de Preocupações (SoC)
+
+O MODEL (Modelo):
+Especialista em dados
+	- Responsabilidade: Gerenciar os dados e as regras de negócio.
+	- Comunica-se diretamente com o banco de dados.
+	- Valida as informações (Ex: formato de e-mail ou estoque disponível)
+	- Em um resteurante, fica na cozinha.
+
+A View (Visão):
+A apresentação dos dados
+	- Responsabilidade: Formatar os dados para o usuário final.
+	- em APIs REST, a "cara" da aplicação é geralmente um arquivo JSON.
+	- Não deve conter lógica de negócio, apenas a exibição do que foi processado.
+	- é o jsom que mandamos
+
+O Controller (Controlador):
+O maestro da orquestra
+	- Responsabilidade: Intermediar a interação do usuário
+	- Recebe a requisição HTTP (Ex: GET /produtos)
+	- Interpreta o pedido e chama o método correto no Model
+	- Em um restaurante seria o garçom.
+
+
+MVC E CAMADA DE SERVIÇO
+Indo Além: Service Layer e Repository
+	- MVC Básico: O Controller fala direto com o Model.
+	- Arquitetura em Camadas (Service): Introduz o "Chef Executivo".
+	- O Service lida com regras complexas que envolvem múltiplos modelos.
+	- O Repository abstrai o banco de dados (permite trocar MySQL por MongoDB sem sofrer)
+
+RESUMO DA AULA:
+MVC: Padrão que divide a aplicação em Model, View e Controller para organizar o código.
+Model: Camada especialista em dados e regras de negócio (o "Cérebro").
+View: Representação dos dados para o cliente, geralmente JSON em APIs.
+Controller:  Intermediário que recebe requisições e coordena Model e View (o "Maestro").
+Benefício Central: Separação de Preocupações, facilitando manutenção e testes.
+
+
+
+
+
+
