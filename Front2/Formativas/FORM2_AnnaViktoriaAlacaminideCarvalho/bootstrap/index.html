@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+        <div class="container">
+          <a class="navbar-brand fw-bold" href="#">Sabor & Saber</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collpase navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Cardapio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container my-5">
+      <h2 class="text-center fw-bold mb-4">Nosso Cardapio</h2>
+      <div
+        class="row g-3 row-cols-1 roe-cols-md-2 row-cols-lg-3"
+        id="containerPratos"
+      ></div>
+    </main>
+    
+    <section class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <h2 class="text-center fw-bold mb-4">Faça seu Pedido</h2>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Seu nome</label>
+              <input type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Prato favorito</label>
+              <select class="form-select">
+                <option>Feijoada</option>
+                <option>Moqueca</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn-danger w-100">
+              Confirmar Pedido
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,62 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TechFood — Sabor & Saber (Tailwind)</title>
+  <title>Sabor & Saber — Tailwind</title>
 
   <!--
-    LIVE CODE — DIFERENÇA DO BOOTSTRAP:
-    Não tem CDN aqui. O CSS vai ser gerado localmente pelo Tailwind.
-    Você vai criar o output.css rodando no terminal:
-      npx tailwindcss -i input.css -o output.css --watch
-    Depois linkar aqui:
-
-    <link rel="stylesheet" href="output.css">
+    Tailwind via npm — gerado pelo processo:
+      1. npm install -D tailwindcss
+      2. npx tailwindcss init
+      3. npx tailwindcss -i input.css -o output.css --watch
+    O arquivo output.css é gerado localmente.
+    
+    NOTA: Em vez de CDN do Bootstrap, agora usamos
+    um arquivo CSS GERADO pelo Tailwind localmente.
+    Só o CSS das classes que você realmente usou entra no output.css.
   -->
-
+  <link rel="stylesheet" href="output.css">
 </head>
-<body>
+<body class="bg-gray-100">
 
   <!--
-    LIVE CODE — PASSO 4 (Header com Tailwind)
-    Mesma ideia do Bootstrap, classes diferentes:
-
-    Bootstrap:  bg-danger  text-white  text-center  py-4  mb-4
-    Tailwind:   bg-red-600 text-white  text-center  py-4  mb-4
-
-    Percebe que text-white, text-center, py-4, mb-4 são IGUAIS!
-    Só o bg muda: bg-danger (nome semântico) → bg-red-600 (nome descritivo)
+    COMPARATIVO BOOTSTRAP × TAILWIND:
+    
+    Bootstrap:  class="bg-danger text-white text-center py-4 mb-4"
+    Tailwind:   class="bg-red-600 text-white text-center py-4 mb-4"
+    
+    Mesmas ideias, nomes diferentes.
+    text-center, py-4, mb-4 são iguais nos dois!
   -->
-  <header>
-    <h1>Sabor &amp; Saber</h1>
-    <p>Cardápio digital</p>
+  <header class="bg-red-600 text-white text-center py-4 mb-4">
+    <h1 class="font-bold text-3xl">Sabor & Saber</h1>
+    <p class="text-lg mt-1">Sabor de casa. Preço justo.</p>
   </header>
 
   <!--
-    LIVE CODE — PASSO 5 (Container e Grid com Tailwind)
-    Bootstrap:  <main class="container">
-    Tailwind:   <main class="max-w-6xl mx-auto px-4">
-
-    Bootstrap tem uma classe "container" pronta.
-    Tailwind não tem — você descreve o que quer:
-      max-w-6xl = largura máxima
-      mx-auto   = centraliza horizontalmente
-      px-4      = padding lateral
-
-    Grid:
-    Bootstrap:  <div class="row g-3"> + col-12 col-md-6 col-lg-4
-    Tailwind:   <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-    No Tailwind o grid vai direto na section, sem div row.
+    Bootstrap:  class="container"
+    Tailwind:   class="max-w-6xl mx-auto px-4"
+    
+    Tailwind não tem "container" mágico — você descreve o que quer:
+    largura máxima + centralizado + padding lateral.
   -->
-  <main>
-    <h2>Nosso Cardápio</h2>
+  <main class="max-w-6xl mx-auto px-4">
 
-    <section id="cardapio">
+    <h2 class="text-center text-2xl font-bold mb-6">Nosso Cardápio</h2>
+
+    <!--
+      Bootstrap:  class="row g-3"  (grid + gap)
+      Tailwind:   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      
+      Tailwind é mais explícito: você declara o grid diretamente.
+      md: e lg: são os breakpoints (equivalentes ao md e lg do Bootstrap).
+    -->
+    <section id="cardapio" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Cards renderizados dinamicamente via script.js -->
     </section>
+
   </main>
 
-  <footer>
-    <small>TechFood · Aula 1 Tailwind · Prof. Marlon</small>
+  <footer class="text-center text-gray-400 py-6 mt-8">
+    <small>Feito com HTML + JS + Tailwind CSS · Sabor & Saber</small>
   </footer>
 
   <script src="script.js" defer></script>
