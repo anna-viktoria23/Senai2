@@ -1,4 +1,3 @@
-// todos os componentes. onde cria a estrutura toda, centralizador dos imports de componentes
 import { useState } from "react";
 import CardPrato from "./components/CardPrato";
 import Header from "./components/Header";
@@ -7,16 +6,27 @@ import { cardapio } from "./data/cardapio";
 import "./App.css";
 
 function App() {
-  // O Hook useState e as funções auxiliares devem ficar dentro do componente
   const [totalItens, setTotalItens] = useState(0);
+  const [valorTotal, setValorTotal] = useState(0);
 
-  function adicionarAoPedido(quantidade) {
+  // Recebe a quantidade e o preço unitário do prato clicado
+  function adicionarAoPedido(quantidade, precoUnitario) {
     setTotalItens((prevTotal) => prevTotal + quantidade);
+    setValorTotal((prevValor) => prevValor + quantidade * precoUnitario);
+  }
+
+  function limparPedido() {
+    setTotalItens(0);
+    setValorTotal(0);
   }
 
   return (
     <main className="app">
-      <Header totalItens={totalItens} />
+      <Header
+        totalItens={totalItens}
+        totalPreco={valorTotal}
+        onLimparPedido={limparPedido}
+      />
       <section className="cardapio">
         {cardapio.map((prato) => (
           <CardPrato
@@ -24,6 +34,7 @@ function App() {
             nome={prato.nome}
             preco={prato.preco}
             categoria={prato.categoria}
+            descricao={prato.descricao}
             onAdicionar={adicionarAoPedido}
           />
         ))}

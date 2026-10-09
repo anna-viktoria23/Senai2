@@ -86,7 +86,9 @@
 }
 
 .btn-adicionar,
-.btn-secundario {
+.btn-secundario, 
+.btn-curtir,
+.btn-descricao {
   border: none;
   border-radius: 8px;
   padding: 10px;
@@ -105,9 +107,73 @@
   color: #333;
 }
 
+.btn-curtir {
+  background: brown;
+  color:#eee
+}
+
+.btn-curtir:hover {
+  background: rgb(191, 50, 50);
+}
+
 .rodape {
   text-align: center;
   margin-top: 40px;
   color: #999;
   font-size: 0.85rem;
+}
+
+/* --- Contentor do Resumo do Pedido no Cabeçalho --- */
+.header .carrinho {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 20px;
+  margin: 15px auto 0 auto;
+  max-width: 320px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Texto dos itens no pedido */
+.header .carrinho p:first-child {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Texto do valor Total em R$ */
+.header .carrinho p:nth-child(2) {
+  font-size: 1.1rem;
+  color: #059669; /* Tom verde para o valor em R$ */
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Botão "Limpar pedido" */
+.header .btn-limpar {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+}
+
+.header .btn-limpar:hover {
+  background-color: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+.header .btn-limpar:active {
+  transform: translateY(0);
 }
