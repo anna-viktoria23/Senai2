@@ -1,0 +1,7 @@
+Sistema: app de pedidos com módulos separados de Carrinho, Pagamento e Estoque.
+
+Tarefa: dê 1 exemplo de teste unitário (testando 1 módulo isolado) e 1 exemplo de teste
+de integração (testando 2 módulos se comunicando) para esse sistema.
+
+Teste unitário: na área de pagamento: verificar se as contas do preço dos produtos, que provavelmente seria valorTotal, estão devolvendo o valor certo.
+Teste de integração: Verificar se o item que está no carrinho ainda é contabilizado no estoque, e que quando o pagamento é efetuado, teoricamente teria que tirá-lo da contagem do estoque.

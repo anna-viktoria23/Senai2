@@ -1,0 +1,66 @@
+Teste de Software 🥲
+
+Processo de avaliação e verificação de que um software funcione como esperado;
+● Atividade sistemática para identificar defeitos, erros ou lacunas em relação aosrequisitos.
+Exemplos:
+● Testar se um app de delivery calcula o valor do frete corretamente
+● Testar se um sistema de login bloqueia senha errada
+● Testar se uma planilha de notas soma certo os pontos
+
+
+Atividade1: liste 3 coisas que você testaria nesse app antes de lançar.
+- funcionamento dos botões
+- funcionalidade (salvar, deletar, marcar, etc)
+- interface intuitiva
+
+Principios: 
+Testes mostram a presença de defeitos, não a sua ausência:
+Testar serve para encontrar erros, não para provar que o sistema está perfeito.
+
+Testes exaustivos são impossíveis:
+É inviável testar tudo em todos os cenários possíveis, como por exemplo testar todas as combinações possíveis em um campo de CPF.
+
+Testar cedo economiza tempo e dinheiro:
+Quanto antes o defeito for encontrado, mais barato será para corrigir.
+
+Agrupamento de defeitos (efeito Pareto):
+A maior parte dos erros está concentrada em poucos módulos.
+Em um sistema 80% dos bugs podem estar em 20% das funcionalidades.
+
+Paradoxo do Pesticida:
+Repetir sempre os mesmos testes perde eficácia com o tempo.
+
+Testes dependem do contexto:
+O tipo ideal de teste varia conforme o sistema e seus objetivos.
+Um sistema bancário exige testes de segurança. Já um jogo, testes em performance e experiência do usuário.
+
+Ilusão da ausência de erros:
+Um software pode não ter defeitos técnicos, mas ainda assim não atender às necessidades do cliente.
+
+EXERCICIO DE FIXAÇÃO
+Pensando nos princípios fundamentais apresentados imagine o seguinte cenário:
+
+"Um estagiário de QA entrega este relatório: Testamos o sistema de cadastro por 2 semanas, com 50 casos de teste diferentes, e não encontramos nenhum bug. Portanto, o sistema está garantidamente livre de erros."
+
+Tarefa:
+1. Aponte o que está errado na conclusão do relatório, citando o princípio correto.
+ - Paradoxo do pesticida: Repetir sempre os mesmos testes, e por muito tempo
+ - Ilusão da ausência de erros: um software pode não ter problemas técnicos, mas ainda assim não atender às necessidades
+2. Reescreva a última frase do relatório de um jeito correto — o que ele deveria ter dito no lugar de "garantidamente livre de erros"?
+ - A parte do cadastro não demonstrou a presença de erros.
+
+Quality Assurance - QA (CARREIRA)
+
+● QA garante que o produto seja entregue funcionando e atendendo aos requisitos
+
+● Não é só "achar bug": inclui entender requisitos, planejar testes, executar/automatizar, reportar falhas, melhorar processos
+
+Habilidades importantes para um QA:
+
+● Raciocínio lógico e atenção aos detalhes;
+
+● Boa comunicação para relatar problemas de forma clara;
+
+● Curiosidade e pensamento crítico;
+
+● Conhecimento técnico (linguagens, banco de dados, ferramentas de teste, projeto).

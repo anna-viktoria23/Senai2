@@ -1,0 +1,12 @@
+react:  diretamente para programação web (navegador)
+--> roda pelo Vite: salvou o arquivo, a tela atualiza na hora. Consegue também atualizar só uma parte
+native: aplicativos
+
+
+primeiro:
+fazer exercícios do pd da aula 3 e 4 e atividade que ele vai lançar
+
+//O .map() cria um componente por item do array.
+
+//O key={prato.id} dá identidade única a cada item — use sempre um id, nunca o índice.
+.
