@@ -15,74 +15,74 @@ function criptografraCpf(texto) {
 }
 
 //salvar senha
-const senhaHash = bcrypt.hashSync('1234', 10) //senha e salto. senhas com hash diferetes
+const senhaHash = bcrypt.hashSync('123456', 10) //senha e salto. senhas com hash diferetes
 
 const cpf1= criptografraCpf('12312312322')
 const cpf2 = criptografraCpf('12312312333')
 const cpf3 = criptografraCpf('12312312344')
 
-const sql = `create database oficina_db;
-USE oficina]_db;
+const sql = `CREATE DATABASE IF NOT EXISTS oficina;
+USE oficina;
 
-
-create table usuario(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    senha VARCHAR (150) NOT NULL
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  senha VARCHAR(255) NOT NULL
 );
 
-
-create table cliente(
-id INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR(100) NOT NULL,
-cpf INT(11) NOT NULL UNIQUE,
-telefone VARCHAR(20) NOT NULL
+CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  cpf VARCHAR(255) NOT NULL,
+  telefone VARCHAR(20),
+  email VARCHAR(100)
 );
 
-
-CREATE TABLE IF NOT EXISTS veiculo (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    marca VARCHAR(100) NOT NULL,
-    modelo VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_cliente
-		FOREIGN KEY (cliente_id)
-        REFERENCES cliente(id)
-        ON DELETE CASCADE
+CREATE TABLE veiculos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id INT NOT NULL,
+  placa VARCHAR(10) NOT NULL,
+  marca VARCHAR(50),
+  modelo VARCHAR(50),
+  ano INT,
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
 );
 
-
-CREATE TABLE IF NOT EXISTS agendamento (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    data_hora DATETIME NOT NULL,
-    CONSTRAINT fk_id_usuario
-		FOREIGN KEY (usuario_id)
-        REFERENCES usuario(id)
-        ON DELETE CASCADE,
-        
-	CONSTRAINT fk_id_veiculo
-		FOREIGN KEY (veiculo_id)
-        REFERENCES veiculo(id)
-        ON DELETE CASCADE
+CREATE TABLE agendamentos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  veiculo_id INT NOT NULL,
+  data_agendamento DATETIME NOT NULL,
+  servico VARCHAR(100),
+  FOREIGN KEY (veiculo_id) REFERENCES veiculos(id)
 );
 
+-- RN01: pelo menos 3 registros em cada tabela
 
-INSERT INTO cliente (nome, cpf, telefone, senha) VALUES
-('Ana Souza', '${cpf1}', '11999999999', '${senhaHash}'),
-('Pedro Lima', '${cpf2}', '11988888888', '${senhaHash}'),
-('Maria Santos', '${cpf3}', '11977777777', ''${senhaHash});
+-- Usuario de teste: admin@oficina.com / 123456
+INSERT INTO usuarios (nome, email, senha) VALUES
+  ('Administrador', 'admin@oficina.com', '${senhaHash}'),
+  ('Carlos Mecanico', 'carlos@oficina.com', '${senhaHash}'),
+  ('Fernanda Atendente', 'fernanda@oficina.com', '${senhaHash}');
 
+-- CPF salvo criptografado [RN03]
+INSERT INTO clientes (nome, cpf, telefone, email) VALUES
+  ('Joao da Silva', '${cpf1}', '(11) 90000-1111', 'joao.silva@email.com'),
+  ('Maria Souza', '${cpf2}', '(11) 90000-2222', 'maria.souza@email.com'),
+  ('Pedro Oliveira', '${cpf3}', '(11) 90000-3333', 'pedro.oliveira@email.com');
 
-INSERT INTO veiculo (marca, modelo, cliente_id) VALUES
-('Fiat', 'Uno', 1),
-('Honda', 'Civic', 2),
-('Volkswagen', 'Gol', 3);
+-- Cada veiculo associado a um cliente [RN09]
+INSERT INTO veiculos (cliente_id, placa, marca, modelo, ano) VALUES
+  (1, 'ABC1D23', 'Volkswagen', 'Gol', 2018),
+  (2, 'DEF4E56', 'Fiat', 'Palio', 2015),
+  (3, 'GHI7F89', 'Chevrolet', 'Onix', 2021);
 
-
-INSERT INTO agendamento (data_hora, usuario_id, veiculo_id) VALUES
-('2026-11-10 08:00:00', 1, 1),
-('2026-11-11 10:00:00', 1, 2),
-('2026-11-12 14:00:00', 1, 3);`
+-- Datas fora de ordem para provar que a ordenacao funciona [RN07]
+INSERT INTO agendamentos (veiculo_id, data_agendamento, servico) VALUES
+  (2, '2026-11-05 09:00:00', 'Troca de oleo'),
+  (1, '2026-10-20 14:30:00', 'Alinhamento e balanceamento'),
+  (3, '2026-10-28 08:00:00', 'Revisao dos freios');
+`
 
 const caminhoSaida = path.join(__dirname, 'database', 'script.sql') //criar o caminho que vai salvar o arquivo
 
